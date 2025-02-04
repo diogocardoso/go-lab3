@@ -33,3 +33,38 @@ docker-compose down
 - O código-fonte completo da implementação.
 - Documentação explicando como rodar o projeto em ambiente dev.
 - Utilize docker/docker-compose para podermos realizar os testes de sua aplicação.
+
+## Exempos de uso
+
+### Criar leilão com produto
+
+``` shell
+# Criar leilão com produto novo (condition: 0)
+curl -X POST http://localhost:8080/auctions \
+-H "Content-Type: application/json" \
+-d '{
+    "product_name": "iPhone 13",
+    "category": "Electronics",
+    "description": "iPhone 13 128GB",
+    "condition": 0
+}'
+
+# Criar leilão com produto usado (condition: 1)
+curl -X POST http://localhost:8080/auctions \
+-H "Content-Type: application/json" \
+-d '{
+    "product_name": "iPhone 12",
+    "category": "Electronics",
+    "description": "iPhone 12 64GB",
+    "condition": 1
+}'	
+```
+
+### Listar leilões
+
+``` shell
+
+curl http://localhost:8080/auctions?status=0
+```
+
+
